@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Intro Vuejs | v-if v-for</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+
+		<div id="root">
+
+			<h1 v-if="tempoBello">Che bella giornata :)</h1>
+			<h1 v-else>Oh No!! piove di continuo!! :(</h1>
+
+			<p v-if="eta >= 18">Puoi guidare</p>
+			<p v-else>Non puoi guidare</p>
+
+			<p v-if="sovrappeso()">Devo mettermi a dieta</p>
+			<p v-else>Sono pronto per la prova costume</p>
+
+			<button @click="toggleMenu()">Menu</button>
+
+			<ul v-show="menuAperto">
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+			</ul>
+
+			<h2>La lista degli studenti</h2>
+			<ul>
+				<li v-for="(elm, i) in studenti" @click="salutaStudente(i)">
+					<h4>{{elm}}</h4>
+				</li>
+			</ul>
+			<h2>Lista spesa</h2>
+			<ul>
+				<li v-for="prodotto in spesa">{{prodotto}}</li>
+			</ul>
+
+		</div>
+
+		<!-- development version, includes helpful console warnings -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
